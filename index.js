@@ -6,7 +6,6 @@ const ObjectId = require("mongodb").ObjectId;
 const { reset } = require("nodemon");
 require("dotenv").config();
 
-const password = "taskShakil";
 const port = process.env.PORT || 5000;
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.llhcr.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
@@ -76,4 +75,4 @@ client.connect((err) => {
   console.log("database connected");
 });
 
-app.listen(process.env.PORT || port);
+app.listen(port);
