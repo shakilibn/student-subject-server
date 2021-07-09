@@ -5,7 +5,7 @@ const { MongoClient } = require("mongodb");
 const ObjectId = require("mongodb").ObjectId;
 // require("dotenv").config();
 
-const port = 5000;
+const port = 3300;
 
 const uri = `mongodb+srv://taskShakil:taskShakil@cluster0.llhcr.mongodb.net/studentSubject?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
@@ -74,4 +74,4 @@ client.connect((err) => {
   console.log("database connected");
 });
 
-app.listen(port);
+app.listen(process.env.PORT || port);
