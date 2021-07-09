@@ -3,12 +3,11 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const { MongoClient } = require("mongodb");
 const ObjectId = require("mongodb").ObjectId;
-const { reset } = require("nodemon");
-require("dotenv").config();
+// require("dotenv").config();
 
-const port = process.env.PORT || 5000;
+const port = 5000;
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.llhcr.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://taskShakil:taskShakil@cluster0.llhcr.mongodb.net/studentSubject?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
