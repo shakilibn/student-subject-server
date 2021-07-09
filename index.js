@@ -4,11 +4,12 @@ const cors = require("cors");
 const { MongoClient } = require("mongodb");
 const ObjectId = require("mongodb").ObjectId;
 const { reset } = require("nodemon");
+require("dotenv").config();
 
 const password = "taskShakil";
+const port = process.env.PORT || 5000;
 
-const uri =
-  "mongodb+srv://taskShakil:taskShakil@cluster0.llhcr.mongodb.net/studentSubject?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.llhcr.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -75,4 +76,4 @@ client.connect((err) => {
   console.log("database connected");
 });
 
-app.listen(3300);
+app.listen(process.env.PORT || port);
